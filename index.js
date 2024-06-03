@@ -22,7 +22,13 @@ app.use("/auth", authRouter)
 app.use("/blog", blogRouter)
 app.use("/user", userRouter)
 
-app.listen(process.env.PORT, () => {
-    console.log(`Server started on http://localhost:${process.env.PORT}`)
+const port = process.env.PORT || 3000
+
+app.get("/", (req, res) => {
+    res.send('Hello World!')
+  })
+
+app.listen(port, () => {
+    console.log(`Server started on port ${port}`)
 })
 
